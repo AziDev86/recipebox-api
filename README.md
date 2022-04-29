@@ -1,2 +1,2 @@
 # recipebox-api
-recipe box api
+Recipebox test application back-end developed with Laravel 9
