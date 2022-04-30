@@ -1,7 +1,7 @@
 <?php
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use  App\Http\Controllers\ProductController;
+//use  App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,11 +13,17 @@ use  App\Http\Controllers\ProductController;
 |
 */
 // cors middleware to control  the endpoint response
-Route::group(['middleware' => ['cors', 'json.response']], function () {
-    Route::apiResource('products', productController::class)->middleware('throttle:20,1');
+//Route::group(['middleware' => ['cors', 'json.response']], function () {
 
+Route::get("products","productController@index");
+Route::get("products/{id}","productController@show");
+Route::post("products","productController@store");
+Route::put("products/{id}","productController@update");
+Route::delete("products/{id}","productController@destroy");
+   // Route::apiResource('products', productController::class)->middleware('throttle:20,1');
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-});
+//
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//});
