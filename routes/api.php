@@ -13,17 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // cors middleware to control  the endpoint response
-//Route::group(['middleware' => ['cors', 'json.response']], function () {
+Route::group(['middleware' => ['cors', 'json.response','throttle:40,5']], function () {
 
 Route::get("products","productController@index");
 Route::get("products/{id}","productController@show");
 Route::post("products","productController@store");
 Route::put("products/{id}","productController@update");
 Route::delete("products/{id}","productController@destroy");
-   // Route::apiResource('products', productController::class)->middleware('throttle:20,1');
 
-//
+
+// Route::apiResource('products', productController::class)->middleware('throttle:20,1');
+
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-//});
+});
