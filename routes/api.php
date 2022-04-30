@@ -14,7 +14,7 @@ use  App\Http\Controllers\ProductController;
 */
 // cors middleware to control  the endpoint response
 Route::group(['middleware' => ['cors', 'json.response']], function () {
-    Route::apiResource('products', ProductController::class)->middleware('throttle:20,1');
+    Route::apiResource('products', productController::class)->middleware('throttle:20,1');
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
