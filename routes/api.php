@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // cors middleware to control  the endpoint response
-Route::group(['middleware' => ['cors', 'json.response','throttle:40,5']], function () {
+//throttle:40,5'
+Route::group(['middleware' => ['cors', 'json.response']], function () {
 
 Route::get("products","productController@index");
 Route::get("products/{id}","productController@show");
